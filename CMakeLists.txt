@@ -123,11 +123,11 @@ set(ZLIB_SRCS
     zutil.c
 )
 
-if(NOT MINGW)
-    set(ZLIB_DLL_SRCS
-        win32/zlib1.rc # If present will override custom build rule below.
-    )
-endif()
+##if(NOT MINGW)
+ #   set(ZLIB_DLL_SRCS
+ #       win32/zlib1.rc # If present will override custom build rule below.
+#    )
+#endif()
 
 if(CMAKE_COMPILER_IS_GNUCC)
     if(ASM686)
@@ -184,7 +184,6 @@ if(MINGW)
 endif(MINGW)
 
 add_library(zlibstatic STATIC ${ZLIB_SRCS} ${ZLIB_ASMS} ${ZLIB_PUBLIC_HDRS} ${ZLIB_PRIVATE_HDRS})
-set_target_properties(zlib PROPERTIES DEFINE_SYMBOL ZLIB_DLL)
 set_target_properties(zlib PROPERTIES SOVERSION 1)
 
 if(NOT CYGWIN)
