@@ -39,7 +39,7 @@ OBJA =
 
 
 # targets
-all: $(STATICLIB) $(SHAREDLIB) $(IMPLIB) \
+all: $(STATICLIB) $(IMPLIB) \
      example.exe minigzip.exe example_d.exe minigzip_d.exe
 
 $(STATICLIB): $(OBJS) $(OBJA)
